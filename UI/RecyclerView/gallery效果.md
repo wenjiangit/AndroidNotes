@@ -1,4 +1,6 @@
-##### 如何实现类似画廊效果，即滑动到中间的item突出显示，并且盖住两边的item，大致效果如下：
+# Gallery画廊效果
+---
+#### 如何实现类似画廊效果，即滑动到中间的item突出显示，并且盖住两边的item，大致效果如下：
 ![效果图](https://github.com/wenjiangit/AndroidNotes/tree/master/UI/source/gallery.gif)
 
 ###### 实现方案
@@ -10,8 +12,7 @@
 > 当某个`item`滑动中间时，需要更新相关ui元素，在调用`adapter`的`notifyDataSetChanged`时会造成界面滑动的不流畅。
 
 ###### 如何优化？
-
-
+    
 ```
   mAdapter.notifyItemRangeChanged(0, mAdapter.getItemCount());
    //清除RecyclerView item的默认动画
