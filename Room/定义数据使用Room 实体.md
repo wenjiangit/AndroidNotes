@@ -1,6 +1,6 @@
 # 定义数据使用Room 实体
 
-使用Room持久化库时,可将相关字段的集合定义为实体.对于每个实体，在关联的数据库对象中创建一个表来保存这些条目。
+使用`Room` 持久化库时,可将相关字段的集合定义为实体.对于每个实体，在关联的数据库对象中创建一个表来保存这些条目。
 
 > **注意** :使用实体在你的`app` 内,[添加架构组件依赖](https://developer.android.google.cn/topic/libraries/architecture/adding-components.html)到你`app` 的`build.gradle` 文件中.
 
@@ -24,11 +24,11 @@ class User {
 
 为了持久化一个字段,`Room`必须有访问它的权限.你可以用`public`修饰一个字段,或者为它提供`set`和`get`方法.如果你使用`get` 和`set`方法，请记住这是基于`Room`中`javabean`的约定。
 
-> **注意** :实体可以有一个空构造函数(如果相应的`DAO` 类可以访问每个持久化字段)或者一个构造函数的参数包含与实体类的字段匹配的类型和名称.Room也能使用全部或部分构造函数,例如一个构造函数只接收一些字段.
+> **注意** :实体可以有一个空构造函数(如果相应的`DAO` 类可以访问每个持久化字段)或者一个构造函数的参数包含与实体类的字段匹配的类型和名称.`Room` 也能使用全部或部分构造函数,例如一个构造函数只接收一些字段.
 
 ## 使用主键
 
-每一个实体必须至少定义一个字段作为主键.即使该实体只有一个字段,你仍然需要使用[@PrimaryKey](https://developer.android.google.cn/reference/android/arch/persistence/room/PrimaryKey.html)注解这个字段.并且,如果你想Room为实体自动分配ID,你可以设置`@PrimaryKey's`  [`autoGenerate`](https://developer.android.google.cn/reference/android/arch/persistence/room/PrimaryKey.html#autoGenerate()) 属性.如果实体具有复合主键,你可以使用 [`@Entity`](https://developer.android.google.cn/reference/android/arch/persistence/room/Entity.html) 的 [`primaryKeys`](https://developer.android.google.cn/reference/android/arch/persistence/room/Entity.html#primaryKeys()) 属性,如下面的代码片段所示:
+每一个实体必须至少定义一个字段作为主键.即使该实体只有一个字段,你仍然需要使用[@PrimaryKey](https://developer.android.google.cn/reference/android/arch/persistence/room/PrimaryKey.html)注解这个字段.并且,如果你想`Room` 为实体自动分配`ID` ,你可以设置`@PrimaryKey's`  [`autoGenerate`](https://developer.android.google.cn/reference/android/arch/persistence/room/PrimaryKey.html#autoGenerate()) 属性.如果实体具有复合主键,你可以使用 [`@Entity`](https://developer.android.google.cn/reference/android/arch/persistence/room/Entity.html) 的 [`primaryKeys`](https://developer.android.google.cn/reference/android/arch/persistence/room/Entity.html#primaryKeys()) 属性,如下面的代码片段所示:
 
 ```java
 @Entity(primaryKeys = {"firstName", "lastName"})
@@ -52,7 +52,7 @@ class User {
 
 > **警告** :表名在`SQLite` 数据库中是大小写敏感的.
 
-与`tableName` 属性类似,Room使用字段名字作为数据库表的列名.如果你想给一列设置不同的名字,给这个字段添加
+与`tableName` 属性类似,`Room` 使用字段名字作为数据库表的列名.如果你想给一列设置不同的名字,给这个字段添加
 
  [`@ColumnInfo`](https://developer.android.google.cn/reference/android/arch/persistence/room/ColumnInfo.html) 注解,如下代码片段所示:
 
@@ -75,7 +75,7 @@ class User {
 
 ## 注释索引和唯一性
 
-取决于你如何访问你的数据,你可能想给数据库的某些字段添加索引来加快你的查询速度.为实体添加索引,可以在@Entity注解中包含 [`indices`](https://developer.android.google.cn/reference/android/arch/persistence/room/Entity.html#indices()) 属性,列出要包含在索引或复合索引中的列的名称,以下代码片段演示了这个注释过程:
+取决于你如何访问你的数据,你可能想给数据库的某些字段添加索引来加快你的查询速度.为实体添加索引,可以在`@Entity` 注解中包含 [`indices`](https://developer.android.google.cn/reference/android/arch/persistence/room/Entity.html#indices()) 属性,列出要包含在索引或复合索引中的列的名称,以下代码片段演示了这个注释过程:
 
 ```java
 @Entity(indices = {@Index("name"),
